@@ -12,7 +12,7 @@ public class ProductoDAO {
     
     public void insert(Producto producto) {
 
-        String sql = "INSERT INTO Productos VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Productos (Codigo, Nombre, PU, Stock, Clasif) VALUES (?, ?, ?, ?, ?)";
 
         try(Connection c = ConexionDB.getConnection();
         PreparedStatement ps = c.prepareStatement(sql)) {
