@@ -30,7 +30,7 @@ public class ProductoDAO {
         }
     }
 
-    public Producto GetByCode(int codigo) {
+    public Producto getByCode(int codigo) {
         
         String sql = "SELECT * FROM Productos WHERE Codigo = ?";
 

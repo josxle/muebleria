@@ -12,12 +12,7 @@ public class ClienteDAO {
 
     public void insert(Cliente cliente) {
 
-        String sql = """
-            INSERT INTO Cliente
-            (RazonSocial, NumTel, RFC, DirNum, DirCalle, DirCP, DirCol,
-             ContNomPila, ContPrimApell, ContSegunApell, TC)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """;
+        String sql = "INSERT INTO Cliente (RazonSocial, NumTel, RFC, DirNum, DirCalle, DirCP, DirCol, ContNomPila, ContPrimApell, ContSegunApell, TC) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection c = ConexionDB.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
@@ -70,7 +65,8 @@ public class ClienteDAO {
                 }
             }
 
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) {
             throw new RuntimeException("Error al buscar cliente", e);
         }
 

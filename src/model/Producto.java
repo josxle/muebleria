@@ -25,10 +25,6 @@ public class Producto { // Clase
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
     // Nombre
 
     public String getNombre() {
