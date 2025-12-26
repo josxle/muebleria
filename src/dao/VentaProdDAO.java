@@ -7,23 +7,23 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class VentaProdDAO {
 
-    public void insertar(VentaProd ventaProd) {
+    public void insertar(VentaProd vp, Connection c) {
 
         String sql = "INSERT INTO ventas_produc (Venta, Producto, Cantidad, Importe) VALUES (?, ?, ?, ?)";
 
-        try(Connection c = ConexionDB.getConnection();
-        PreparedStatement ps = c.prepareStatement(sql)) {
-
-            ps.setInt(1, ventaProd.getVenta());
-            ps.setInt(2, ventaProd.getProducto());
-            ps.setInt(3, ventaProd.getCantidad());
-            ps.setDouble(4, ventaProd.getImporte());
+        try(PreparedStatement ps = c.prepareStatement(sql)) {
+        
+            ps.setInt(1, vp.getVenta());
+            ps.setInt(2, vp.getProducto());
+            ps.setInt(3, vp.getCantidad());
+            ps.setDouble(4, vp.getImporte());
 
             ps.executeUpdate();
         }
